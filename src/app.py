@@ -1,9 +1,7 @@
-#from utils import db_connect
-#engine = db_connect()
-
 # your code here
 from flask import Flask, request, render_template
 from pickle import load
+
 
 app = Flask(__name__)
 model = load(open("models/decision_tree_classifier_default_42.sav", "rb"))
@@ -12,6 +10,7 @@ class_dict = {
     "1": "Iris versicolor",
     "2": "Iris virginica"
 }
+
 
 @app.route("/", methods = ["GET", "POST"])
 def index():
